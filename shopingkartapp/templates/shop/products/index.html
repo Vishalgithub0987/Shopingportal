@@ -1,0 +1,81 @@
+{% extends 'shop\layouts\main.html' %}
+{% block tittle %}
+Products | online shopping
+{% endblock tittle %}
+
+{% block content %}
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Awesome Products</h4>
+                <hr style="border-color: #b8bfc2;">
+            </div>
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3">
+                    <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
+                    <a href="{% url 'collections' item.name %}">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{item.name}}</h5>
+                            <p class="card-text">
+                                <span class="float-start old_price"><s>Rs.{{ item.original_price  }}</s></span>
+                                <span class="float-end new_price">{{ item.selling_price  }}</span>
+                            </p>
+                            
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card img {
+        height: 400px;
+        object-fit: cover;
+        padding-bottom: 20px;
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+    .old_price{
+        font-weight: bold;
+        color: red;
+
+    }
+
+    .new_price{
+        font-weight: bold;
+        background-color: green;
+        color: white;
+        padding: 2px;
+        border-radius: 5px;
+    }
+</style>
+
+
+    
+{% endblock content %}
+
+
