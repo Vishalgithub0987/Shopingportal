@@ -8,14 +8,18 @@ Products | online shopping
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4 class="mb-3">Awesome Products</h4>
+                <h4 class="mb-3">{{category_name}} Products</h4>
                 <hr style="border-color: #b8bfc2;">
             </div>
             {% for item in products %}
             <div class="col-md-4 col-lg-3">
                 <div class="card my-3">
-                    <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
-                    <a href="{% url 'collections' item.name %}">
+                     {% if item.product_image %}
+                    <img src="{{ item.product_image.url }}" class="card-img-top" alt="categories">
+                    {% else %}
+                    <img src="path/to/default/image.jpg" class="card-img-top" alt="default image">
+                    {% endif %}
+                    <a href="{% url 'product_details' category_name  item.name %}">
                         <div class="card-body">
                             <h5 class="card-title text-primary">{{item.name}}</h5>
                             <p class="card-text">

@@ -1,0 +1,79 @@
+{% extends 'shop\layouts\main.html' %}
+{% block tittle %}
+Products | online shopping
+{% endblock tittle %}
+
+{% block content %}
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3"> {{products}} Products</h4>
+                <hr style="border-color: #b8bfc2;">
+            </div>
+            
+            <div class="col-4 my-3">
+            <img src="{{products.product_image.url}}" class="card-image-top" alt="products">
+            </div>
+            <div class="col -8 my-3">
+                <h5 class="text-success">MEN'S SHOES FASHION</h5>
+                <P>Seller Name</P>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ullam qui illo quibusdam atque a dolorum commodi expedita repellat cupiditate voluptatum numquam fugit, itaque repellendus id consequuntur debitis amet molestias!</p>
+                <h6 class="my-2">Current_price: Rs. <s>450</s></h6>
+                <h5 class="my-2">Offer_price: Rs.350</h5>
+                <div class="my-3">
+                    <button class="btn btn-primary"><i class="fa fa-cart"></i> Add to Cart</button>
+                    <button class="btn btn-danger"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card img {
+        height: 400px;
+        object-fit: cover;
+        padding-bottom: 20px;
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+    .old_price{
+        font-weight: bold;
+        color: red;
+
+    }
+
+    .new_price{
+        font-weight: bold;
+        background-color: green;
+        color: white;
+        padding: 2px;
+        border-radius: 5px;
+    }
+</style>
+
+
+    
+{% endblock content %}
+
+
